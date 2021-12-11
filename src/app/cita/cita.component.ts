@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CitaService } from '../services/cita.service';
 import { EstadoCitaService } from '../services/estado-cita.service';
-import { Cita } from './cita';
-import { EstadoCita } from './estadoCita';
+import { Cita } from '../models/cita.model';
+import { EstadoCita } from '../models/estado-cita.model';
 
 @Component({
   selector: 'app-cita',

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { EstadoCita } from '../cita/estadoCita';
+import { EstadoCita } from '../models/estado-cita.model';
 
 @Injectable({
   providedIn: 'root'

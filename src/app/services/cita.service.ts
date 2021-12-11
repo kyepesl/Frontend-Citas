@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEvent,HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Cita } from '../cita/cita';
+import { Cita } from '../models/cita.model';
 
 @Injectable({
   providedIn: 'root'
