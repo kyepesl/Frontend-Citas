@@ -58,7 +58,7 @@ export class MascotaComponent implements OnInit {
   guardar(){
     if(this.mascota!=null && this.mascota.id){
       this.service.updateMascotas(this.mascota).subscribe(res => {
-        console.log(res.mensaje);
+
         this.obtener();
         this.accionCompletada = true;
         this.mensaje = "La mascota ha sido actualizada con éxito!";

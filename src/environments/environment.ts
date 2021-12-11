@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URL: "https://app-citas-veterinarias.herokuapp.com/api"
+  URL: "http://localhost:8080/api"
 };
 
 /*

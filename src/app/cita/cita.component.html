@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-4">
+      <h2>Mis Citas</h2>
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-4">
+      <button
+        type="button"
+        class="btn btn-primary float-end mb-2"
+      >
+        Crear
+      </button>
+    </div>
+  </div>
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Mascota</th>
+        <th scope="col">Tipo Cita</th>
+        <th scope="col">Estado Cita</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of citas">
+        <th scope="row">{{ cita.id }}</th>
+        <td>{{ cita.fechaCita }}</td>
+        <td>{{ cita.mascota.nombre }}</td>
+        <td>{{ cita.tipoCita.nombre }}</td>
+        <td>{{ cita.estadoCita.nombre }}</td>
+        <td>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarCitaModal">Editar estado</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="modal fade" id="editarCitaModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar estado de cita</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <select class="form-select" *ngFor="let estado of estadosCitas">
+          <option [value]="estado.id">{{ estado.nombre }}</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-warning">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
