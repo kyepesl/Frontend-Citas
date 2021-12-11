@@ -1,0 +1,176 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-4">
+      <h2>Mis Mascotas</h2>
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-4">
+      <button
+        type="button"
+        class="btn btn-primary float-end mb-2"
+        data-bs-toggle="modal"
+        data-bs-target="#crearModal"
+        (click)="reiniciarDatosModal()"
+      >
+        Crear
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="alert alert-success" role="alert" *ngIf="accionCompletada">
+      {{ mensaje }}
+    </div>
+    <div class="col">
+      <table class="table table-hover mt-4">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Fecha nacimiento</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mascota of mascotas">
+            <th scope="row">{{ mascota.id }}</th>
+            <td>{{ mascota.nombre }}</td>
+            <td>{{ mascota.especie }}</td>
+            <td>{{ mascota.sexo }}</td>
+            <td>{{ mascota.fechaNacimiento }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-warning mx-2"
+                (click)="editar(mascota)"
+                data-bs-toggle="modal"
+                data-bs-target="#crearModal"
+              >
+                Editar
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#eliminarModal"
+                (click)="eliminar(mascota.id)"
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="crearModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Mascota</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              [(ngModel)]="mascota.nombre"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="especie" class="form-label">Especie</label>
+            <input
+              type="text"
+              class="form-control"
+              id="especie"
+              name="especie"
+              [(ngModel)]="mascota.especie"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="sexo" class="form-label">Sexo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="sexo"
+              name="sexo"
+              [(ngModel)]="mascota.sexo"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha nacimiento</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fecha"
+              name="fecha"
+              [(ngModel)]="mascota.fechaNacimiento"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="guardar()">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="eliminarModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Mascota</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">¿Está seguro que desea eliminar la mascota?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          No
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="confirmarEliminar()"
+        >
+          Si
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
