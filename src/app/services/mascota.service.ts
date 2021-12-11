@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEvent,HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Mascota } from '../mascota/mascota';
+import { Mascota } from '../models/mascota.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,7 @@ import { Mascota } from '../mascota/mascota';
 
 export class MascotaService {
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {  }
 
   getMascotas(){
     return this.http.get<Mascota[]>(`${environment.URL}/mascota`)

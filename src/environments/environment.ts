@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  URL: "https://app-citas-veterinarias.herokuapp.com/api"
+  URL: "http://localhost:8080/api",
+  AuthUrl: "http://localhost:8080",
+  AppUser: "citasvetapp",
+  AppPassword: "1234567"
 };
 
 /*

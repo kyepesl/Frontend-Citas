@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MascotaService } from '../services/mascota.service';
-import { Mascota } from './mascota';
+import { Mascota } from '../models/mascota.model';
 
 declare var bootstrap: any;
 

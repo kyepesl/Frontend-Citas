@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row justify-content-center mt-10">
+    <div class="col-4">
+      <div class="alert alert-danger" role="alert" *ngIf="error">
+        Usuario o contraseña incorrectas.
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="registerError">
+        Ha ocurrido un error creando el registro.
+      </div>
+      <div class="alert alert-success" role="alert" *ngIf="successRegistre">
+        El registro se ha credo correctamente.
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{isRegister ? 'Registro':'Inicio de sessión'}}</h5>
+          <form method="post" *ngIf="!isRegister">
+            <div class="form-group mb-2">
+              <input [(ngModel)]="usuario.username" type="email" class="form-control" name="username" id="username"
+                placeholder="Correo electrónico" autofocus required>
+            </div>
+            <div class="form-group mb-2">
+              <input [(ngModel)]="usuario.password" type="password" class="form-control" name="password" id="password"
+                placeholder="Contraseña" required>
+            </div>
+
+            <div class="form-group justify-content-end d-flex">
+              <button (click)="isRegister = true" type="button" class="btn btn-link pull-end">Registrarse</button>
+              <button (click)="login()" [disabled]="loading" type="submit" class="btn btn-primary pull-end me-2">Iniciar
+                sesión</button>
+            </div>
+          </form>
+          <form method="post" *ngIf="isRegister">
+            <div class="form-group mb-2">
+              <input [(ngModel)]="usuario.nombre" type="text" class="form-control" name="nombre" id="nombre"
+                placeholder="Nombre" autofocus required>
+            </div>
+            <div class="form-group mb-2">
+              <input [(ngModel)]="usuario.apellido" type="text" class="form-control" name="apellido" id="apellido"
+                placeholder="Apellido" autofocus required>
+            </div>
+            <div class="form-group mb-2">
+              <input [(ngModel)]="usuario.correo" type="email" class="form-control" name="correo" id="correo"
+                placeholder="Correo electrónico" autofocus required>
+            </div>
+            <div class="form-group mb-2">
+              <input [(ngModel)]="usuario.password" type="password" class="form-control" name="password" id="password"
+                placeholder="Contraseña" required>
+            </div>
+
+            <div class="form-group justify-content-end d-flex">
+              <button (click)="isRegister = false" [disabled]="loading" type="button"
+                class="btn btn-link pull-end me-2">Iniciar sesión</button>
+              <button (click)="register()" [disabled]="loading" type="submit"
+                class="btn btn-primary pull-end">Registrarse</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
