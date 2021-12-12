@@ -21,6 +21,9 @@
     <div class="alert alert-success" role="alert" *ngIf="accionCompletada">
       {{ mensaje }}
     </div>
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+      {{ mensaje }}
+    </div>
     <div class="col">
       <table class="table table-hover mt-4">
         <thead class="table-light">
@@ -66,17 +69,11 @@
     </div>
   </div>
 </div>
-<div
-  class="modal fade"
-  id="crearModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="crearModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Crear Mascota</h5>
+        <h5 class="modal-title">Crear Mascota</h5>
         <button
           type="button"
           class="btn-close"

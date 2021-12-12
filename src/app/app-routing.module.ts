@@ -20,6 +20,7 @@ const routes: Routes = [
   },
   {
     path: "citas",
+    canActivate:[AuthGuard],
     component: CitaComponent
   },
   {
